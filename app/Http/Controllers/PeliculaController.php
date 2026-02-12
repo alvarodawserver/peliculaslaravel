@@ -36,7 +36,13 @@ class PeliculaController extends Controller
      */
     public function show(Pelicula $pelicula)
     {
-        //
+        $entradas = $pelicula->entradas()->count();
+       
+        //$pelicula->loadCount('entradas');
+        return view('peliculas.show',[
+            'pelicula' => $pelicula,
+            'entradas' => $entradas
+        ]);
     }
 
     /**

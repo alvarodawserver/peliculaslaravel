@@ -11,4 +11,8 @@ class Pelicula extends Model
     public function proyecciones(){
         return $this->hasMany(Proyeccione::class);
     }
+
+    public function entradas(){
+        return $this->hasManyThrough(Entrada::class,Proyeccione::class);
+    }
 }
